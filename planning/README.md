@@ -23,16 +23,14 @@ DELETE | /trails/:id | Delete a hike from the DB (delete)
 
 Method | Route | Description 
 --- | --- | --- 
-POST | /trails/:id/reviews | Submit New review
-DELETE | /trails/:id/reviews/:id | Delete review by ID
+POST | /trails/:id/reviews | Submit New review (create)
+DELETE | /trails/:id/reviews/:id | Delete review by ID (delete)
 
 Method | Route | Description 
 --- | --- | --- 
 GET | /login | Asks user to sign in using credentials
 GET | /logout | User logs out
 GET | /signup | User can sign up
-GET | /auth/google | User can sign up using Google
-GET | /oauth2callback | Callback route Google will call after user confirms selection
 
 ### Scrum manager/project manager's name
 Caroline Clark
