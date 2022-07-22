@@ -9,34 +9,28 @@ An app for outdoor enthusiasts to view and manage hiking/biking trails.
 
 ### List of models and their properties
     Trail Schema:
-        name: {type: String, required: true},
-        location: {type: String, required: true},
-        difficulty: {type: Number, min: 1, max: 5, default: 3},
-        length: {type: Number, required: true},
-        elevationChange: type: Number,
-        routeType: String,
-        description: {type: String, required: true},
-        image: String,
-        cloudinary_id: String,
-        reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: ‘Review’
-        }]
+        name: String
+        location: String
+        difficulty: Number
+        length: Number
+        elevationChange: Number
+        routeType: String
+        description: String
+        image: String
+        cloudinary_id: String
+        reviews: mongoose.Schema.Types.ObjectId, ref: ‘Review’
 
     User Schema:
-        name: {type: String, required: true},
-        email: {type: String, required: true},
-        googleID: String,
-        reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: ‘Review’
-        }]
+        name: String
+        email: String
+        googleID: String
+        reviews: mongoose.Schema.Types.ObjectId, ref: ‘Review’
 
     Review Schema:
-        content: {type: String, required: true},
-        rating: {type: Number, min: 1, max: 5, default: 5},
-        userID: {type: mongoose.Schema.Types.ObjectId, ref: ‘User’},
-        trailID: {type: mongoose.Schema.Types.ObjectId, ref: 'Trail'}
+        content: String
+        rating: Number
+        userID: mongoose.Schema.Types.ObjectId, ref: ‘User’
+        trailID: mongoose.Schema.Types.ObjectId, ref: 'Trail'
 
 ### List of routes
 Method | Route | Description 
