@@ -1,5 +1,7 @@
 const Trail = require('../models/trails')
 
+const mongoose = require('mongoose')
+
 const trails = new Trail[
     new Trail({
         name: "Cheney Trail",
@@ -123,3 +125,17 @@ const trails = new Trail[
  })
 
 ]
+
+const done = 0;
+for (const i = 0; i < trails.length; i++){
+   trails[i].save(function(err, result){
+      done++;
+      if(done === trails.length){
+         exit();
+      }
+   })
+}
+
+function exit(){
+      mongoose.disconnect();
+}

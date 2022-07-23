@@ -62,3 +62,17 @@ const reviews = [
     trailId: 'seedmeg'
  })
 ]
+
+const done = 0;
+for (const i = 0; i < reviews.length; i++){
+   reviews[i].save(function(err, result){
+      done++;
+      if(done === reviews.length){
+         exit();
+      }
+   })
+}
+
+function exit(){
+      mongoose.disconnect();
+}
