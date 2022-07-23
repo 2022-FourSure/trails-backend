@@ -14,4 +14,4 @@ const trailsSchema = new Schema({
    reviews: mongoose.Schema.Types.ObjectId, ref: 'Review',
 })
 
-model.exports = mongoose.model('Trail', trailsSchema);
+module.exports = mongoose.model('Trail', trailsSchema);
