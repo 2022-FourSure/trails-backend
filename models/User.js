@@ -1,5 +1,7 @@
+// Require Mongoose
 const mongoose = require("mongoose");
 
+// Create new User Schema
 const UserSchema = new mongoose.Schema({
   name: { type: String, default: "" },
   email: {
@@ -10,17 +12,19 @@ const UserSchema = new mongoose.Schema({
   refresh_token: String,
 });
 
+// CC: THIS CODE NEEDS COMMENTS
 UserSchema.on("index", (error) => {
   console.log("indexing user error occurred", error.message);
 });
 
 const User = mongoose.model("User", UserSchema);
 
+// CC: THIS CODE NEEDS COMMENTS
 User.ensureIndexes(function (err) {
   if (err) {
-    console.log("error while running ensureIndexes", err);
+    console.log("Error while running ensureIndexes", err);
   } else {
-    console.log("successfully ran ensureIndexes");
+    console.log("Successfully ran ensureIndexes");
   }
 });
 
