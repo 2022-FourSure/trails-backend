@@ -50,7 +50,7 @@ let show = (req, res) => {
         if(err){
             res.status(400).json(err)
             return
-        }uu
+        }
         console.log(trail)
         res.json(trail)
     })
