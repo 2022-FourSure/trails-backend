@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const trailsSchema = new Schema({
+// Create a Trail Schem
+// Reviews are a referenced schema inside it 
+const trailSchema = new Schema({
    name: {type: String, required: true},
    location: {type: String, required: true},
    difficulty: {type: Number, required: true},
@@ -11,7 +13,9 @@ const trailsSchema = new Schema({
    description: {type: String, required: true},
    image: {type: String, required: true},
    cloudinary_id: {type: String, required: true},
-   reviews: mongoose.Schema.Types.ObjectId, ref: 'Review',
+   reviews: {type: mongoose.Schema.Types.ObjectId, ref: 'Review'},
 })
 
-module.exports = mongoose.model('Trail', trailsSchema);
+const Trail = mongoose.model('Trail', trailSchema);
+
+module.exports = Trail;
