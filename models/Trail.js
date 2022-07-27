@@ -1,6 +1,4 @@
-// Require mongoose
 const mongoose = require('mongoose')
-// Instantiate mongoose schema as Schema variable
 const Schema = mongoose.Schema;
 
 // Create a Trail Schem

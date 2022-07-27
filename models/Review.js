@@ -1,4 +1,3 @@
-// Require mongoose
 const mongoose = require('mongoose')
 
 // Create a Review Schema

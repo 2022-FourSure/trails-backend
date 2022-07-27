@@ -1,4 +1,3 @@
-// Require cloudinary
 const cloudinary = require('cloudinary');
 // Load environment variables in .env file to make them available
 const dotenv = require('dotenv')

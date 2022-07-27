@@ -1,4 +1,3 @@
-// Require mongoose library
 const mongoose = require("mongoose");
 // Require dotenv library so can use variables in .env file
 require("dotenv").config();
