@@ -1,6 +1,4 @@
-// Require Trail model
 const Trail = require('../models/Trail');
-// Require Cloudinary
 const cloudinary = require('../utils/cloudinary');
 
 // Index = get all trails
@@ -61,8 +59,6 @@ let showEditTrailForm = (req, res) => {
     res.send('Show Edit Trail Form')
 }
 
-// CC: I'M GETTING AN ERROR IN POSTMAN WITH THIS ROUTE/FUNCTION
-// CC: IT SAYS CANNOT REMOVE HEADERS AFTER THEY ARE SENT
 // Update = update a trail in the database
 let update = async (req, res) => {
     if (req.file) {
@@ -75,13 +71,11 @@ let update = async (req, res) => {
         delete req.body["image"]
     }
     // Console.log the form data
-    // CC: FOR SOME REASON THIS IS EMPTY WHEN I TEST IN POSTMAN
     console.log('req.body:', req.body)
     await Trail.findByIdAndUpdate(req.params.id, req.body)
+    res.send('Trail has been updated')
 }
 
-// CC: THIS METHOD DELETES THE ENTRY FROM THE DB BUT CRASHES THE APP
-// CC: IT SAYS CANNOT REMOVE HEADERS AFTER THEY ARE SENT TO THE CLIENT
 // Delete = delete a trail in the database
 let deleteTrail = async (req, res) => {
     try {
@@ -93,6 +87,7 @@ let deleteTrail = async (req, res) => {
     } catch (err) {
         console.log(err)
     }
+    res.send('Trail has been deleted');
 }
 
 module.exports = {

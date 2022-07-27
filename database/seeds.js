@@ -1,13 +1,8 @@
 // This file is used to seed the database
 // Run it by calling `node databse/seeds.js`
 
-// Require the database connection 
 require('./connection');
-
-// Require the Trail model
 const Trail = require('../models/Trail');
-
-// Require the seed data in seeds.json
 const trailSeeds = require('./seeds.json');
 
 // Delete all trails in the database

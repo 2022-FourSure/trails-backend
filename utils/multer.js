@@ -1,4 +1,3 @@
-// Require multer
 const multer = require('multer');
 // Require path to enable working with the file system
 const path = require('path');

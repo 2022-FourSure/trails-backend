@@ -1,4 +1,3 @@
-// Require Mongoose
 const mongoose = require("mongoose");
 
 // Create new User Schema
