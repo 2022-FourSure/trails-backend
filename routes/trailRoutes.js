@@ -1,9 +1,5 @@
-// Require expresss and create router object
-const router = require('express').Router();
-// Require trail controller
+const router = require('express').Router()
 const trailCtrl = require('../controllers/trailController');
-
-// Require multer for image uploads
 const upload = require('../utils/multer');
 
 router.get('/', trailCtrl.index);

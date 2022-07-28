@@ -17,6 +17,7 @@ let showNewTrailForm = (req, res) => {
 // Create = create a new trail in the database
 let create = async (req, res) => {
     try {
+        console.log(req.file)
         // Call cloudinary to get the cloudinary image attributes
         const result = await cloudinary.uploader.upload(req.file.path)
 
