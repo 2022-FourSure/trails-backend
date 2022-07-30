@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const User = require('../models/User');
 const {
   THIRTY_MINUTES_AS_MILLLISECONDS,
   ONE_DAY_AS_MILLISECONDS,
@@ -20,8 +21,8 @@ const createRefreshToken = (payload) => {
 };
 
 const createTokens = (user) => {
-  let email = user.email;
-  let payload = { email: email };
+  let id = user.id;
+  let payload = { user_id: id };
   let accessToken = createAccessToken(payload);
   let refreshToken = createRefreshToken(payload);
   return {
@@ -30,14 +31,13 @@ const createTokens = (user) => {
   };
 };
 
-const verifyToken = (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   let accessToken = req.cookies.accessToken;
   if (!accessToken) {
     return res.status(403).json({ error: "You must sign in" });
   }
-  let payload = null;
   try {
-    payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+    await jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
     next();
   } catch (error) {
     console.error("Failed to verify token ", error);
@@ -45,8 +45,13 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const addRefreshTokenToUser = ({ user, refreshToken }) => {
-  user.refresh_token = refreshToken;
+const addTokensToUser = ({ userId, refreshToken, accessToken }) => {
+  User.findByIdAndUpdate(userId, { 
+    refresh_token: refreshToken,
+    access_token: accessToken
+  }, (error, u) => {
+   console.log('Failed to add tokens to user', error)
+  })
 };
 
 const setAccessTokenCookie = ({ res, accessToken }) => {
@@ -54,19 +59,19 @@ const setAccessTokenCookie = ({ res, accessToken }) => {
     maxAge: 900000,
     secure: process.env.NODE_ENV !== "development",
     httpOnly: true,
-    expire: new Date() + 9999,
-  });
+    expire: new Date() + 9999999999,
+  })
 };
 
 const createAndSetTokens = ({ res, user }) => {
   let { accessToken, refreshToken } = createTokens(user);
-  addRefreshTokenToUser({ user: user, refreshToken });
+  addTokensToUser({ userId: user.id, refreshToken, accessToken });
   setAccessTokenCookie({ res, accessToken });
 };
 
 module.exports = {
   createTokens,
   verifyToken,
-  addRefreshTokenToUser,
+  addTokensToUser,
   createAndSetTokens,
 };
