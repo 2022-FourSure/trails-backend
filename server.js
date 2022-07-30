@@ -11,17 +11,17 @@ const timeout = require("connect-timeout");
 const cookieParser = require("cookie-parser");
 
 // CC: THIS NEEDS A MORE DESCRIPTIVE NAME
-const routes = require("./routes");
 
 const { haltOnTimedout } = require("./helpers");
-const trailRoutes = require('./routes/trailRoutes');
+const { authenticationRoutes, trailRoutes } = require('./routes'); 
 
 // Connect to the database
 require('./database/connection')
 
 // CC: DO WE NEED A PORT VARIABLE IN .ENV?
 // CC: IF NOT LET'S INSTANTIATE PORT IN THIS FILE AND EDIT THE APP.LISTEN
-app.set("port", process.env.PORT || 8000);
+
+app.set("port", 4000);
 
 // Middleware starts here
 // Cors allows us to pass info between backend and frontend
@@ -41,9 +41,9 @@ app.use(timeout("5s"));
 
 
 // Routes start here
+app.use('/trails', trailRoutes)
+app.use('/', authenticationRoutes)
 // FIRST ROUTES NEEDS MORE DESCRIPTIVE NAME
-app.use("/", routes);
-app.use('/trails', trailRoutes);
 
 app.listen(app.get("port"), () => {
   console.log(`PORT: ${app.get("port")}`);
