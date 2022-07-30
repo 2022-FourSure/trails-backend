@@ -21,7 +21,7 @@ require('./database/connection')
 // CC: DO WE NEED A PORT VARIABLE IN .ENV?
 // CC: IF NOT LET'S INSTANTIATE PORT IN THIS FILE AND EDIT THE APP.LISTEN
 
-app.set("port", 4000);
+app.set("port", 8000);
 
 // Middleware starts here
 // Cors allows us to pass info between backend and frontend
