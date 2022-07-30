@@ -3,7 +3,6 @@ const reviewCtrl = require('../controllers/reviewController');
 
 router.get('/trails/:id/reviews', reviewCtrl.index)
 router.post('trails/:id/reviews', reviewCtrl.create)
-router.delete('reviews/:id', reviewCtrl.create)
-
+router.delete('reviews/:id', reviewCtrl.deleteReview)
 
 module.exports = router

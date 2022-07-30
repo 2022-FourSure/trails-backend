@@ -1,4 +1,5 @@
 const Trail = require('../models/Trail');
+const Review = require('../models/Review');
 const cloudinary = require('../utils/cloudinary');
 
 // Index = get all trails
@@ -33,7 +34,6 @@ let create = async (req, res) => {
             image: result.secure_url,
             cloudinary_id: result.public_id
         })
-        // Console.log the new trail
         console.log(newTrail)
         // Save the new trail to the database
         await newTrail.save();
