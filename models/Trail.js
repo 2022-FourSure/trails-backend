@@ -12,8 +12,8 @@ const trailSchema = new Schema({
    routeType: {type: String, required: true},
    description: {type: String, required: true},
    image: {type: String, required: true},
-   cloudinary_id: {type: String, required: true}
-   // CC: BILLIE RECOMMENDED WE DELETE REVIEWS HERE SO WE DON'T HAVE TO MANAGE UPDATING REVIEWS IN MULTIPLE LOCATIONS
+   cloudinary_id: {type: String, required: true},
+   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
 })
 
 const Trail = mongoose.model('Trail', trailSchema);

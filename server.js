@@ -9,11 +9,10 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const timeout = require("connect-timeout");
 const cookieParser = require("cookie-parser");
-
 // CC: THIS NEEDS A MORE DESCRIPTIVE NAME
-
 const { haltOnTimedout } = require("./helpers");
 const { authenticationRoutes, trailRoutes } = require('./routes'); 
+const reviewRoutes = require('./routes/reviewRoutes')
 
 // Connect to the database
 require('./database/connection')
@@ -43,7 +42,7 @@ app.use(timeout("5s"));
 // Routes start here
 app.use('/trails', trailRoutes)
 app.use('/', authenticationRoutes)
-// FIRST ROUTES NEEDS MORE DESCRIPTIVE NAME
+app.use('/trails', reviewRoutes)
 
 app.listen(app.get("port"), () => {
   console.log(`PORT: ${app.get("port")}`);
