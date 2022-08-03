@@ -1,4 +1,5 @@
 const Trail = require('../models/Trail');
+const Review = require('../models/Review');
 const cloudinary = require('../utils/cloudinary');
 
 // Index = get all trails
@@ -17,6 +18,7 @@ let showNewTrailForm = (req, res) => {
 // Create = create a new trail in the database
 let create = async (req, res) => {
     try {
+        console.log(req.file)
         // Call cloudinary to get the cloudinary image attributes
         const result = await cloudinary.uploader.upload(req.file.path)
 
@@ -32,7 +34,6 @@ let create = async (req, res) => {
             image: result.secure_url,
             cloudinary_id: result.public_id
         })
-        // Console.log the new trail
         console.log(newTrail)
         // Save the new trail to the database
         await newTrail.save();
@@ -43,16 +44,12 @@ let create = async (req, res) => {
 }
 
 // Show = show details of one trail
-let show = (req, res) => {
-    Trail.findById(req.params.id, (err, trail) => {
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        console.log(trail)
-        res.json(trail)
-    })
-}
+let show = (req, res, next) => {
+    Trail.findById(req.params.id)
+        .populate('reviews')
+        .then((trail) => res.json(trail))
+        .catch(next);
+};
 
 // Edit = render form to edit a trail
 let showEditTrailForm = (req, res) => {
@@ -72,8 +69,19 @@ let update = async (req, res) => {
     }
     // Console.log the form data
     console.log('req.body:', req.body)
-    await Trail.findByIdAndUpdate(req.params.id, req.body)
-    res.send('Trail has been updated')
+    Trail.findByIdAndUpdate(req.params.id, req.body, (err, item) => {
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        Trail.find({}, (error, items) => {
+            if(err){
+                res.status(400).json(error)
+                return
+            }
+            res.json(items)
+        })
+    })
 }
 
 // Delete = delete a trail in the database

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Lady Bird Johnson Grove Nature Trail",
+        "content": "This is a wonderful trail!",
+        "rating": 5
+    },
+    {
+        "name": "Horsetooth Falls and Rock Trail Loop",
+        "content": "Beautiful hike but challenging. Make sure to bring water!",
+        "rating": 4
+    },
+    {
+        "name": "Price Lake Loop",
+        "content": "Great hike and dog friendly!",
+        "rating": 5
+    }
+]

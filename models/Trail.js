@@ -13,7 +13,7 @@ const trailSchema = new Schema({
    description: {type: String, required: true},
    image: {type: String, required: true},
    cloudinary_id: {type: String, required: true},
-   reviews: {type: mongoose.Schema.Types.ObjectId, ref: 'Review'},
+   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
 })
 
 const Trail = mongoose.model('Trail', trailSchema);

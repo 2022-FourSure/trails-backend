@@ -15,8 +15,7 @@ db.on('connected', () => {
   console.log(`Connected to MongoDB at ${db.host}:${db.port}`)
 })
 
-
-// CC: CAT'S CODE TO BE COMMENTED BACK IN LATER
+// CC: CAT'S CODE THAT I COMMENTED OUT TEMPORARILY
 // const databaseUrl = `mongodb+srv://${process.env.TRAILS_DB_USERNAME}:${process.env.TRAILS_DB_PASSWORD}@${process.env.TRAILS_DB_URI}`;
 // const dbOptions = {
 //   useNewUrlParser: true,

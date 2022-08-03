@@ -1,8 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const { register, login } = require("../controllers/userController");
+const authenticationRoutes = require('./authenticationRoutes');
+const trailRoutes = require('./trailRoutes');
 
-router.post("/register", register);
-router.post("/login", login);
+// CC: CAN WE DELETE THIS FILE?
 
-module.exports = router;
+module.exports = {
+  authenticationRoutes, 
+  trailRoutes
+}
