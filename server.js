@@ -17,9 +17,6 @@ const reviewRoutes = require('./routes/reviewRoutes')
 // Connect to the database
 require('./database/connection')
 
-// CC: DO WE NEED A PORT VARIABLE IN .ENV?
-// CC: IF NOT LET'S INSTANTIATE PORT IN THIS FILE AND EDIT THE APP.LISTEN
-
 app.set("port", 8000);
 
 // Middleware starts here
