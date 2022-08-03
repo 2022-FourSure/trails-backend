@@ -8,7 +8,9 @@
         "routeType": "Loop",
         "description":"Even though this route is popular, this short loop should be on every visitor's to-do list. Featuring incredible scenery, a slice of history, and some remarkable trees, this trail exemplifies the traits that make Redwood National Forest unique. /nTraveling through the area in which Redwood National Park was originally dedicated by Lady Bird Johnson, this trail holds a special place in both human and natural history. Traveling through the area in which Redwood National Park was originally dedicated by Lady Bird Johnson, this trail holds a special place in both human and natural history. /nAlong the trail, expect to encounter a smooth tread and gentle grades as you meander amongst the massive trunks of trees that have been alive since the time of Genghis Khan. /nWhatever time of year you visit, you are bound to enjoy the bounty of the season, whether it's the cool mists of winter hugging car-sized tree trunks, the bright blooms of spring azalea and rhododendron, summer's bright sunbeams streaming through the trees, or the fall's eruption of fiery bigleaf maple.",
         "image":"https://res.cloudinary.com/lilu986/image/upload/v1658612582/lady1_d4pjgq.jpg",
-        "cloudinary_id": "lady1_d4pjgq"
+        "cloudinary_id": "lady1_d4pjgq",
+        "reviews": [],
+        "reviewss": [0]
     },
     {
         "name": "Horsetooth Falls and Rock Trail Loop",
@@ -19,7 +21,9 @@
         "routeType": "Loop",
         "description":"This trail features many trails around Horsetooth Mountain and provides beautiful scenic views of Colorado. The top of Horsetooth Mountain provides views of Pikes Peak, the Rocky Mountains, and others in the distance. /nThe trail was certainly manageable and guided. There is a consistently steady incline covering about 2,000 feet of incline. Most of the trails are narrow, but still accessible for bikes and dogs. There are some loose rocks (big and small) and tree roots along the trails, but none are overly difficult to overcome. The most difficult aspects of this combination of trails are the inclines and the length of the hike. /nThe first half of the loop climbs steadily, with a short side trip to Horsetooth Falls at about one mile. From there, you'll continue a steady climb on Spring Creek Trail. Eventually, after a short connecting section on Towers, turn onto West Ridge Trail to wind back to the south. This trail will connect you to the Horsetooth Rock Trail which takes you up to the summit. Enjoy the views before starting you descent back to the trailhead on the South Ridge Trail.",
         "image":"https://res.cloudinary.com/lilu986/image/upload/v1658612823/horsetooth1_voi5av.jpg",
-        "cloudinary_id": "horsetooth1_voi5av"
+        "cloudinary_id": "horsetooth1_voi5av",
+        "reviews": [],
+        "reviewss": [1]
     },
     {
         "name": "Price Lake Loop",
@@ -30,7 +34,9 @@
         "routeType": "Loop",
         "description":"Trail located in Columbia Plateau TrailThis is an easy 2.3-mile loop which circles Price Lake and cuts through the campground. The trail features a few great views of Grandfather Mountain. Canoeing and kayaking are also permitted on the lake. /nPrice Lake Loop is a rooty beginner trail through thick, lush Appalachian forest. the foliage is dense, but the trail is easy to follow and features several bridges and boardwalks through marshy areas. The loop makes for a nice after-work hike and is suitable for the whole family. Price Lake is located at Milepost 297 on the Blue Ridge Parkway. You can park at the Price Lake overlook or the boat rental lot and take the 2.3-mile loop in either direction.",
         "image":"https://res.cloudinary.com/lilu986/image/upload/v1658613102/price1_c8tymn.jpg",
-        "cloudinary_id": "price1_c8tymn"
+        "cloudinary_id": "price1_c8tymn",
+        "reviews": [],
+        "reviewss": [2]
     },
     {
         "name": "Deer Lick Cave Loop Trail",

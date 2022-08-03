@@ -44,16 +44,12 @@ let create = async (req, res) => {
 }
 
 // Show = show details of one trail
-let show = (req, res) => {
-    Trail.findById(req.params.id, (err, trail) => {
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        console.log(trail)
-        res.json(trail)
-    })
-}
+let show = (req, res, next) => {
+    Trail.findById(req.params.id)
+        .populate('reviews')
+        .then((trail) => res.json(trail))
+        .catch(next);
+};
 
 // Edit = render form to edit a trail
 let showEditTrailForm = (req, res) => {
@@ -73,8 +69,19 @@ let update = async (req, res) => {
     }
     // Console.log the form data
     console.log('req.body:', req.body)
-    await Trail.findByIdAndUpdate(req.params.id, req.body)
-    res.send('Trail has been updated')
+    Trail.findByIdAndUpdate(req.params.id, req.body, (err, item) => {
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        Trail.find({}, (error, items) => {
+            if(err){
+                res.status(400).json(error)
+                return
+            }
+            res.json(items)
+        })
+    })
 }
 
 // Delete = delete a trail in the database
