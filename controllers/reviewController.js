@@ -7,16 +7,28 @@ let create = async (req, res) => {
     // Create the review and save to the database
     let newReview = await Review.create(req.body)
     // Add the review mongo ID to the trail per the Trail schema
-    Trail.findById(req.params.id, (err, trail) => {
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        trail.reviews.push(newReview._id);
-        trail.save();
-        res.json(trail)
-    })
-}
+    Trail.findByIdAndUpdate(req.params.id, {$push:{reviews: newReview._id}}, {new:true})
+    // .populate('reviews')
+    .then(
+        (trail, err) => {
+            console.log(err, trail)
+            if(err){
+                res.status(400).json(err)
+                return
+            }
+            // trail.reviews.push(newReview._id);
+            // trail.save()
+            // .populate('reviews')
+            // .then((t, err)=> res.json(t))
+            Trail.findById(req.params.id)
+            .populate('reviews')
+            .then((trail, err) => {
+                console.log('err', err)
+                console.log('trail', trail)
+                res.json(trail)
+                })
+        })        
+    }
 
 // Delete = delete a review in the database
 let deleteReview = async (req, res) => {
