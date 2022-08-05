@@ -17,7 +17,7 @@ const reviewRoutes = require('./routes/reviewRoutes')
 // Connect to the database
 require('./database/connection')
 
-app.set("port", 8080);
+const PORT = process.env.PORT || 8080
 
 // Middleware starts here
 // Cors allows us to pass info between backend and frontend
@@ -41,6 +41,6 @@ app.use('/trails', trailRoutes)
 app.use('/', authenticationRoutes)
 app.use('/trails', reviewRoutes)
 
-app.listen(app.get("port"), () => {
-  console.log(`PORT: ${app.get("port")}`);
+app.listen(PORT, () => {
+  console.log(`PORT: ${PORT}}`);
 });
