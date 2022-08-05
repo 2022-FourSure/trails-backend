@@ -17,7 +17,7 @@ const reviewRoutes = require('./routes/reviewRoutes')
 // Connect to the database
 require('./database/connection')
 
-app.set("port", 8000);
+app.set("port", 8080);
 
 // Middleware starts here
 // Cors allows us to pass info between backend and frontend
