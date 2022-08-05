@@ -35,8 +35,10 @@ app.use(cookieParser());
 app.use(timeout("5s"));
 // Middleware ends here
 
-
 // Routes start here
+app.get('/', (req, res) => {
+  res.redirect('/trails')
+});
 app.use('/trails', trailRoutes)
 app.use('/', authenticationRoutes)
 app.use('/trails', reviewRoutes)
