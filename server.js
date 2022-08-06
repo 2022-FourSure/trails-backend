@@ -24,11 +24,13 @@ const PORT = process.env.PORT || 8080
 app.use(timeout("5s"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: "https://take-a-hike-dude.herokuapp.com", 
-  methods: "GET, PUT, PATCH, POST, DELETE",
-  credentials: true
-}));
+app.use(cors(
+//   {
+//   origin: "https://take-a-hike-dude.herokuapp.com", 
+//   methods: "GET, PUT, PATCH, POST, DELETE",
+//   credentials: true
+// }
+));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
