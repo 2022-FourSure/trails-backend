@@ -16,10 +16,6 @@ let create = async (req, res) => {
                 res.status(400).json(err)
                 return
             }
-            // trail.reviews.push(newReview._id);
-            // trail.save()
-            // .populate('reviews')
-            // .then((t, err)=> res.json(t))
             Trail.findById(req.params.id)
             .populate('reviews')
             .then((trail, err) => {
