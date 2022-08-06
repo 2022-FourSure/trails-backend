@@ -12,31 +12,24 @@ const cookieParser = require("cookie-parser");
 // CC: THIS NEEDS A MORE DESCRIPTIVE NAME
 const { haltOnTimedout } = require("./helpers");
 const { authenticationRoutes, trailRoutes } = require('./routes'); 
-const reviewRoutes = require('./routes/reviewRoutes')
+const reviewRoutes = require('./routes/reviewRoutes');
 
 // Connect to the database
-require('./database/connection')
+require('./database/connection');
 
+// Heroku needs this OR statement, it creates its own PORT
 const PORT = process.env.PORT || 8080
 
 // Middleware starts here
-// Cors allows us to pass info between backend and frontend
+app.use(morgan('tiny'));
 app.use(timeout("5s"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-//   {
-//   origin: "https://take-a-hike-dude.herokuapp.com", 
-//   methods: "GET, PUT, PATCH, POST, DELETE",
-//   credentials: true
-// }
-));
-
+// Cors allows us to pass info between backend and frontend
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(haltOnTimedout);
 app.use(cookieParser());
-app.use(timeout("5s"));
 // Middleware ends here
 
 // Routes start here
