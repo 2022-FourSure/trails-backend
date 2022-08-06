@@ -24,10 +24,12 @@ const PORT = process.env.PORT || 8080
 app.use(timeout("5s"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-app.use(morgan("tiny"));
+app.use(cors({
+  origin: "https://take-a-hike-dude.herokuapp.com", 
+  methods: "GET, PUT, PATCH, POST, DELETE",
+  credentials: true
+}));
 
-// CC: IT LOOKS LIKE BODYPARSER IS USED TWICE, HERE AND ABOVE. CAN WE DELETE ONE?
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(haltOnTimedout);
